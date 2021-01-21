@@ -1,0 +1,32 @@
+{
+  "name": "socialnews",
+  "version": "1.0.0",
+  "scripts": {
+    "lint:server": "cd server && npm run lint",
+    "lint:client": "cd client && npm run lint",
+    "lint": "npm run lint:server && npm run lint:client",
+    "ci:server": "cd server && npm ci",
+    "ci:client": "cd client && npm ci",
+    "ci": "npm run ci:server && npm run ci:client",
+    "install:client": "cd client && npm install",
+    "install:server": "cd server && npm install",
+    "install": "npm run install:client && npm run install:server",
+    "build:client": "cd client && npm run build",
+    "start": "cd server && npm run start",
+    "build": "npm run install && npm run build:client && npm start"
+  },
+  "engines": {
+    "node": "14.x"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "husky": "^4.3.8"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}
